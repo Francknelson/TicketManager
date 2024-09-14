@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <OutputType>WinExe</OutputType>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+    <ApplicationIcon />
+  </PropertyGroup>
+  <ItemGroup>
+    <None Update="postgresDataSet.xsc">
+      <DependentUpon>postgresDataSet.xsd</DependentUpon>
+    </None>
+    <None Update="postgresDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>postgresDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Update="postgresDataSet.xss">
+      <DependentUpon>postgresDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="EntityFramework6.Npgsql" Version="6.4.3" />
+    <PackageReference Include="Npgsql" Version="8.0.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Forms\EmployeesForm.cs" />
+    <Compile Remove="Forms\EmployeesForm.Designer.cs" />
+    <EmbeddedResource Remove="Forms\EmployeesForm.resx" />
+  </ItemGroup>
+</Project>
